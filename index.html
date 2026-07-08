@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Memoria · Objetos</title>
+  <meta name="theme-color" content="#1e2b3c">
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIk1lbW9yaWEgT2JqZXRvcyIsCiAgInNob3J0X25hbWUiOiAiTWVtb3JpYSIsCiAgImRlc2NyaXB0aW9uIjogImp1ZWdvIGRlIG1lbW9yaWEgY29uIG9iamV0b3MiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhcm9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFlMmIzYyIsCiAgInRoZW1lX2NvbG9yIjogIiMxZTJiM2MiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInJTNFJTNDcmVjdCB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgcng9JzUwJyBmaWxsPSclMjMxZTJiM2MnLyUzRSUzQ3RleHQgeD0nMjU2JyB5PSczMjAnIGZvbnQtc2l6ZT0nMjUwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPSclMjNmMGFlZTMnJTNFJUZDRiUzQy90ZXh0JTNFJTNDL3N2ZyUzRQogICAgICIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdCn0=">
   <style>
     * {
       box-sizing: border-box;
@@ -30,7 +32,6 @@
       box-shadow: 0 12px 28px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.04);
     }
-    /* top bar mini */
     .top-bar {
       display: flex;
       flex-wrap: wrap;
@@ -38,6 +39,23 @@
       justify-content: space-between;
       gap: 6px;
       margin-bottom: 8px;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .app-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #1e2b3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      flex-shrink: 0;
     }
     h1 {
       font-size: 15px;
@@ -103,7 +121,28 @@
       background: rgba(230, 177, 126, 0.12);
       border-color: #e6b17e;
     }
-    /* stats mini */
+    .btn-install {
+      background: rgba(230, 177, 126, 0.15);
+      border: 1px solid rgba(230, 177, 126, 0.25);
+      color: #e6b17e;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+    .btn-install:hover {
+      background: rgba(230, 177, 126, 0.25);
+      border-color: #e6b17e;
+    }
+    .btn-install.hidden {
+      display: none;
+    }
     .stats {
       display: flex;
       flex-wrap: wrap;
@@ -136,7 +175,6 @@
     .stat-item.best span {
       color: #e6b17e;
     }
-    /* phase badge mini */
     .phase-badge {
       background: rgba(230, 177, 126, 0.1);
       border: 1px solid rgba(230, 177, 126, 0.15);
@@ -163,7 +201,6 @@
       50% { opacity: 1; transform: scale(1.2); }
       100% { opacity: 0.3; transform: scale(0.8); }
     }
-    /* board SUPER compacto */
     .board {
       display: grid;
       gap: 5px;
@@ -213,11 +250,6 @@
       line-height: 1;
       transition: 0.15s;
     }
-    .card-back {
-      font-size: 1.2rem;
-      opacity: 0.2;
-      letter-spacing: 2px;
-    }
     .card.preview {
       background: #2e4155;
       border-color: rgba(255, 215, 150, 0.35);
@@ -227,7 +259,6 @@
     .card.hidden-card {
       background: #1f2d3a;
     }
-    /* found area mini */
     .found-area {
       display: flex;
       flex-wrap: wrap;
@@ -257,7 +288,6 @@
       font-size: 10px;
       opacity: 0.5;
     }
-    /* modal mini */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -350,19 +380,25 @@
       .stat-item span { font-size: 10px; min-width: 16px; }
       .diff-group button { font-size: 8px; padding: 2px 6px; }
       .btn-restart { font-size: 9px; padding: 2px 8px; }
+      .btn-install { font-size: 9px; padding: 2px 8px; }
+      .app-icon { width: 24px; height: 24px; font-size: 15px; }
     }
   </style>
 </head>
 <body>
 <div class="game-container">
   <div class="top-bar">
-    <h1>🧩 <small>objetos</small></h1>
+    <div class="top-bar-left">
+      <div class="app-icon">🧩</div>
+      <h1>Memoria <small>objetos</small></h1>
+    </div>
     <div class="controls">
       <div class="diff-group" id="diffGroup">
         <button data-diff="facil">Fácil</button>
         <button data-diff="normal" class="active">Normal</button>
         <button data-diff="dificil">Difícil</button>
       </div>
+      <button class="btn-install hidden" id="installBtn">📲 Instalar</button>
       <button class="btn-restart" id="restartBtn">↻</button>
     </div>
   </div>
@@ -386,7 +422,6 @@
   </div>
 </div>
 
-<!-- Modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <h2>🎉 ¡Listo!</h2>
@@ -401,6 +436,32 @@
 
 <script>
   (function(){
+    // ---- INSTALL ----
+    let deferredPrompt = null;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.classList.remove('hidden');
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const result = await deferredPrompt.userChoice;
+        if (result.outcome === 'accepted') {
+          installBtn.classList.add('hidden');
+        }
+        deferredPrompt = null;
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      installBtn.classList.add('hidden');
+    });
+
+    // ---- GAME ----
     const OBJECTS = [
       { id: 'sol',   name: 'Sol',   emoji: '☀️' },
       { id: 'luna',  name: 'Luna',  emoji: '🌙' },
