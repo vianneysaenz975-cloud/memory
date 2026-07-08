@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Memoria · Objetos</title>
   <meta name="theme-color" content="#1e2b3c">
-  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIk1lbW9yaWEgT2JqZXRvcyIsCiAgInNob3J0X25hbWUiOiAiTWVtb3JpYSIsCiAgImRlc2NyaXB0aW9uIjogImp1ZWdvIGRlIG1lbW9yaWEgY29uIG9iamV0b3MiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhcm9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFlMmIzYyIsCiAgInRoZW1lX2NvbG9yIjogIiMxZTJiM2MiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInJTNFJTNDcmVjdCB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgcng9JzUwJyBmaWxsPSclMjMxZTJiM2MnLyUzRSUzQ3RleHQgeD0nMjU2JyB5PSczMjAnIGZvbnQtc2l6ZT0nMjUwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPSclMjNmMGFlZTMnJTNFJUZDRiUzQy90ZXh0JTNFJTNDL3N2ZyUzRQogICAgICIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSIKICAgIH0KICBdCn0=">
+  <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIk1lbW9yaWEgT2JqZXRvcyIsCiAgInNob3J0X25hbWUiOiAiTWVtb3JpYSIsCiAgImRlc2NyaXB0aW9uIjogImp1ZWdvIGRlIG1lbW9yaWEgY29uIG9iamV0b3MiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhcm9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFlMmIzYyIsCiAgInRoZW1lX2NvbG9yIjogIiMxZTJiM2MiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInJTNFJTNDcmVjdCB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgcng9JzUwJyBmaWxsPSclMjMxZTJiM2MnLyUzRSUzQ3RleHQgeD0nMjU2JyB5PSczMjAnIGZvbnQtc2l6ZT0nMjUwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPSclMjNmMGFlZTMnJTNFJUZDRiUzQy90ZXh0JTNFJTNDL3N2ZyUzRQogICAgICAiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXQp9">
   <style>
     * {
       box-sizing: border-box;
@@ -43,19 +43,26 @@
     .top-bar-left {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
     .app-icon {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
       background: #1e2b3c;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .app-icon img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: block;
     }
     h1 {
       font-size: 15px;
@@ -381,7 +388,8 @@
       .diff-group button { font-size: 8px; padding: 2px 6px; }
       .btn-restart { font-size: 9px; padding: 2px 8px; }
       .btn-install { font-size: 9px; padding: 2px 8px; }
-      .app-icon { width: 24px; height: 24px; font-size: 15px; }
+      .app-icon { width: 28px; height: 28px; font-size: 16px; }
+      .app-icon img { width: 24px; height: 24px; }
     }
   </style>
 </head>
@@ -389,7 +397,12 @@
 <div class="game-container">
   <div class="top-bar">
     <div class="top-bar-left">
-      <div class="app-icon">🧩</div>
+      <div class="app-icon">
+        <svg viewBox="0 0 512 512" width="28" height="28">
+          <rect width="512" height="512" rx="50" fill="#1e2b3c"/>
+          <text x="256" y="320" font-size="250" text-anchor="middle" fill="#f0eae3" font-family="Arial">🧩</text>
+        </svg>
+      </div>
       <h1>Memoria <small>objetos</small></h1>
     </div>
     <div class="controls">
